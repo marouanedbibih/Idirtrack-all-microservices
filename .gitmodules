@@ -1,0 +1,21 @@
+[submodule "api-gateway"]
+	path = api-gateway
+	url = https://github.com/marouanedbibih/Idirtrack-api-gateway
+[submodule "discovery"]
+	path = discovery
+	url = https://github.com/marouanedbibih/Idirtrack-discovery
+[submodule "config-server"]
+	path = config-server
+	url = https://github.com/marouanedbibih/Idirtrack-config-server
+[submodule "user-service"]
+	path = user-service
+	url = https://github.com/marouanedbibih/Idirtrack-user-service
+[submodule "stock-service"]
+	path = stock-service
+	url = https://github.com/marouanedbibih/Idirtrack-stock-service
+[submodule "vehicle-service"]
+	path = vehicle-service
+	url = https://github.com/marouanedbibih/Idirtrack-vehicle-service
+[submodule "web-app"]
+	path = web-app
+	url = https://github.com/marouanedbibih/Idirtrack-web-app
