@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BackendApplication<stock>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "org.idirtrack.backend.BackendApplication",
+            "projectName": "stock",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

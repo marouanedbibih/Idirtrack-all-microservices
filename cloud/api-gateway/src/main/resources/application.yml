@@ -1,0 +1,65 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: vehicle-service
+          uri: lb://vehicle-service
+          predicates:
+            - Path=/vehicle-api/**
+        - id: stock-service
+          uri: lb://stock-service
+          predicates:
+            - Path=/stock-api/**
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user-api/**
+        - id: discovery-server
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/web
+          filters:
+            - SetPath=/
+        - id: discovery-server-static
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/**
+      globalcors:
+        add-to-simple-url-handler-mapping: true
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3001"
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+server:
+  port: 8000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+# logging:
+#   level:
+#     root: INFO
+#     org:
+#       springframework:
+#         web: DEBUG
+#         cloud:
+#           gateway: DEBUG
+#         security: DEBUG
+logging:
+  level:
+    com.example.api_gateway: DEBUG
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.cloud.gateway.filter: DEBUG
+    org.springframework.security: DEBUG
+    

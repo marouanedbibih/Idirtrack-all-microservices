@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # MySQL
+  mysql:
+    image: mysql:8.0
+    container_name: idirtrack_mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: idirtech
+      MYSQL_USER: marouane
+      MYSQL_PASSWORD: marouane
+    ports:
+      - "3311:3306"
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    networks:
+    - idirtrack-net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # MongoDB
+  mongo:
+    image: mongo:6.0
+    container_name: idirtrack_mongo_db
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+      - "27027:27017"
+    volumes:
+      - ./data/mongo:/data/db
+    networks:
+    - idirtrack-net
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+networks:
+  idirtrack-net:
+    driver: bridge

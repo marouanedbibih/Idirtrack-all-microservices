@@ -1,0 +1,23 @@
+server:
+  port: ${SERVER_PORT:8086}
+
+spring:
+  application:
+    name: ${SPRING_APPLICATION_NAME:vehicle-service}
+  datasource:
+    driver-class-name: ${DATASOURCE_DRIVER_CLASS_NAME:com.mysql.cj.jdbc.Driver}
+    url: ${DATASOURCE_URL:jdbc:mysql://db-instance-idirtrack.cdyk8iy4qug8.eu-west-3.rds.amazonaws.com:5432/vehicle_marouane_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${DATASOURCE_USERNAME:admin}
+    password: ${DATASOURCE_PASSWORD:vbDGZyxiazBD}
+  jpa:
+    hibernate:
+      ddl-auto: ${JPA_HIBERNATE_DDL_AUTO:update}
+    database: ${JPA_DATABASE:mysql}
+    database-platform: ${JPA_DATABASE_PLATFORM:org.hibernate.dialect.MySQLDialect}
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761/eureka}
