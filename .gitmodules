@@ -1,3 +1,4 @@
+# Cloud
 [submodule "api-gateway"]
 	path = cloud/api-gateway
 	url = https://github.com/marouanedbibih/Idirtrack-api-gateway
@@ -7,15 +8,22 @@
 [submodule "config-server"]
 	path = cloud/config-server
 	url = https://github.com/marouanedbibih/Idirtrack-config-server
+
+# Microservices
 [submodule "user-service"]
 	path = microservices/user-service
 	url = https://github.com/marouanedbibih/Idirtrack-user-service
-[submodule "stock-service"]
-	path = microservices/stock-service
+[submodule "stock-microservice"]
+	path = microservices/stock
 	url = https://github.com/marouanedbibih/Idirtrack-stock-service
 [submodule "vehicle-service"]
 	path = microservices/vehicle-service
 	url = https://github.com/marouanedbibih/Idirtrack-vehicle-service
+
+# Web App
 [submodule "web-app"]
 	path = web-app
 	url = https://github.com/marouanedbibih/Idirtrack-web-app
+
+# Mobile
+
